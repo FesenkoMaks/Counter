@@ -1,0 +1,50 @@
+.settingCounter {
+    display: inline-block;
+    border: 2px solid black;
+    margin: 50px;
+    padding: 5px;
+    width: 400px;
+    height: 400px;
+    background: #21201e;
+}
+
+.settingCounterElement {
+    margin: 20px;
+}
+
+.settingCounterElement .input {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.errorInput {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    background: red;
+    border: 2px solid red;
+}
+
+.settingCounterItemTop {
+
+    border: 2px solid black;
+    margin: 5px;
+    height: 200px;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    background-image: radial-gradient(rgb(255, 241, 38), rgb(235, 223, 35), rgb(216, 206, 33), rgb(196, 188, 30), rgb(177, 170, 28), rgb(157, 152, 25), rgb(138, 135, 23), rgb(118, 117, 20), rgb(99, 99, 18), rgb(79, 81, 15), rgb(60, 64, 13), rgb(40, 46, 10));
+}
+
+.settingCounterItemBottom {
+    border: 2px solid black;
+    margin: 5px;
+    height: 180px;
+    background: #f0d829;
+
+}

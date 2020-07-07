@@ -1,0 +1,21 @@
+.myButton .btn{
+    background: #21201e;
+    color: white;
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+}
+
+.myButton .disabled{
+    background: #5c5c5c;
+    color: #969696;
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+}
+
+.myButton {
+    margin-top: 50px;
+    display: inline-block;
+}
+

@@ -1,0 +1,39 @@
+.counter {
+    display: inline-block;
+    border: 2px solid black;
+    margin: 50px;
+    padding: 5px;
+    width: 400px;
+    height: 400px;
+    background: #21201e;
+}
+
+.number {
+    color: white;
+}
+
+.maxCount {
+        color: red;
+}
+
+.spanError {
+    color: red;
+
+}
+
+.counterItemTop {
+    border: 2px solid black;
+    margin: 5px;
+    height: 200px;
+    font-weight: bold;
+    font-size: 140px;
+    background-image: radial-gradient(rgb(255, 241, 38), rgb(235, 223, 35), rgb(216, 206, 33), rgb(196, 188, 30), rgb(177, 170, 28), rgb(157, 152, 25), rgb(138, 135, 23), rgb(118, 117, 20), rgb(99, 99, 18), rgb(79, 81, 15), rgb(60, 64, 13), rgb(40, 46, 10));
+}
+
+.counterItemBottom {
+    border: 2px solid black;
+    margin: 5px;
+    height: 180px;
+    background: #f0d829;
+
+}
