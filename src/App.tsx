@@ -10,14 +10,18 @@ export type StateType = {
 }
 
 function App() {
+    let lsMaxValue = Number(localStorage.getItem('maxValue'))
+    let lsStartValue = Number(localStorage.getItem('startValue'))
+
+
     let [state, setState] = useState({
-        maxValue: 1,
-        startValue: 0
+        maxValue: lsMaxValue ? lsMaxValue : 1,
+        startValue: lsStartValue ? lsStartValue : 0
     })
 
 
-    let [maxValue, setMaxValue] = useState(1)
-    let [startValue, setStartValue] = useState(0)
+    let [maxValue, setMaxValue] = useState(lsMaxValue ? lsMaxValue : state.maxValue)
+    let [startValue, setStartValue] = useState(lsStartValue ? lsStartValue : state.startValue)
 
 
     let [count, setCount] = useState(state.startValue);
@@ -46,7 +50,9 @@ function App() {
         state.startValue = currentStartValue
         setState({...state})
         resetCount();
-
+        localStorage.setItem('maxValue', currentMaxValue.toString())
+        localStorage.setItem('startValue', currentStartValue.toString())
+        console.log(localStorage.getItem('maxValue'))
     }
 
 

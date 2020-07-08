@@ -13,7 +13,7 @@ type CounterPropsType = {
 }
 
 function Counter(props: CounterPropsType) {
-    let errorСondition = props.maxValue < 0 ||
+    let errorCondition = props.maxValue < 0 ||
         props.startValue < 0 ||
         props.startValue > props.maxValue ||
         props.startValue === props.maxValue
@@ -25,7 +25,7 @@ function Counter(props: CounterPropsType) {
                 <div
                     className={props.count === props.state.maxValue? 'maxCount' : 'number'}>
                     {
-                        errorСondition? <span className={'spanError'}>Error!</span> : props.count
+                        errorCondition? <span className={'spanError'}>Error!</span> : props.count
                     }
                 </div>
             </div>
