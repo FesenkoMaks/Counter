@@ -16,6 +16,7 @@ type SettingCounterPropsType = {
 function SettingCounter(props: SettingCounterPropsType) {
     let currentMaxValue = React.createRef<HTMLInputElement>()
     let currentStartValue = React.createRef<HTMLInputElement>()
+
     let onSetClick = () => {
         if (currentMaxValue.current && currentStartValue.current) {
             props.setSettingCounter(+currentMaxValue.current.value, +currentStartValue.current.value)

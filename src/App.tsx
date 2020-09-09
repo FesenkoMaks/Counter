@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import './App.css';
 import Counter from "./Counter/Counter";
 import SettingCounter from "./SettingCounter/SettingCounter";
+import {setMaxValueAC, setStartValueAC} from "./Counter/Counter-reducer";
+import {store} from "./redux/Store";
+import {rerenderTree} from "./index";
 
 
 export type StateType = {
@@ -10,18 +13,18 @@ export type StateType = {
 }
 
 function App() {
-    let lsMaxValue = Number(localStorage.getItem('maxValue'))
-    let lsStartValue = Number(localStorage.getItem('startValue'))
+
+    let state = store.getState().count
 
 
-    let [state, setState] = useState({
-        maxValue: lsMaxValue ? lsMaxValue : 1,
-        startValue: lsStartValue ? lsStartValue : 0
-    })
-
-
-    let [maxValue, setMaxValue] = useState(lsMaxValue ? lsMaxValue : state.maxValue)
-    let [startValue, setStartValue] = useState(lsStartValue ? lsStartValue : state.startValue)
+    // let [state, setState] = useState({
+    //     maxValue: lsMaxValue ? lsMaxValue : 1,
+    //     startValue: lsStartValue ? lsStartValue : 0
+    // })
+    //
+    //
+    // let [maxValue, setMaxValue] = useState(lsMaxValue ? lsMaxValue : state.maxValue)
+    // let [startValue, setStartValue] = useState(lsStartValue ? lsStartValue : state.startValue)
 
 
     let [count, setCount] = useState(state.startValue);
@@ -38,18 +41,23 @@ function App() {
 
 
     function onChangeMaxValue(e: any) {
-        setMaxValue(+e.currentTarget.value)
+        store.dispatch(setMaxValueAC(+e.currentTarget.value))
+        rerenderTree()
     }
 
     function onChangeStartValue(e: any) {
-        setStartValue(+e.currentTarget.value)
+        store.dispatch( setStartValueAC(+e.currentTarget.value))
+        rerenderTree()
     }
 
     function setSettingCounter(currentMaxValue: number, currentStartValue: number) {
-        state.maxValue = currentMaxValue
-        state.startValue = currentStartValue
-        setState({...state})
+        setStartValueAC(currentStartValue)
+        setMaxValueAC(currentMaxValue)
+        // state.maxValue = currentMaxValue
+        // state.startValue = currentStartValue
+        // setState({...state})
         resetCount();
+        rerenderTree()
         localStorage.setItem('maxValue', currentMaxValue.toString())
         localStorage.setItem('startValue', currentStartValue.toString())
         console.log(localStorage.getItem('maxValue'))
@@ -60,8 +68,8 @@ function App() {
         <div className="App">
             <Counter
                 state={state}
-                maxValue={maxValue}
-                startValue={startValue}
+                maxValue={state.maxValue}
+                startValue={state.startValue}
                 incCount={incCount}
                 resetCount={resetCount}
                 count={count}
@@ -69,8 +77,8 @@ function App() {
             />
             <SettingCounter
                 state={state}
-                maxValue={maxValue}
-                startValue={startValue}
+                maxValue={state.maxValue}
+                startValue={state.startValue}
                 onChangeMaxValue={onChangeMaxValue}
                 onChangeStartValue={onChangeStartValue}
                 setSettingCounter={setSettingCounter}
